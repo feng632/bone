@@ -1,0 +1,150 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* 找一个干净的无衬线字体 */
+}
+
+
+
+.hero-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('background.jpg');
+  background-size: cover;      /* 图片铺满且保持比例 */
+  background-position: center; /* 图片居中 */
+  position: relative;          /* 给里面悬浮的元素做参考系 */
+  color: white;
+}
+
+/* 1. 这是一个淡入并微微向上浮动的动画剧本 */
+@keyframes pureFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. 让大画板里的所有东西（排除掉导航条）都执行上面那个动画 */
+.hero-container > *:not(.navbar) {
+  opacity: 0; 
+  animation: pureFadeIn 1.2s ease-out forwards; 
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* 左中右散开 */
+  align-items: center; /* 垂直居中 */
+  padding: 20px;
+  position: absolute; /* 固定在顶部 */
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index:1000;
+}
+
+.main-content {
+  position: absolute;
+  left: 5%;
+  top: 40%;
+}
+.main-title {
+  font-size: 4rem;
+  font-weight: 300; /* 字体比较细 */
+  line-height: 1.2;
+}
+
+.logo, .cta-btn {
+  background-color: #f7e018; /* 提取图片里的黄色 */
+  color: black;
+  font-weight: bold;
+  border-radius: 8px; /* 圆角 */
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px; /* 按钮之间的间距 */
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2); /* 白色底，20%透明度 */
+  backdrop-filter: blur(10px); /* 【核心技巧】让背后的图片变模糊，产生毛玻璃感 */
+  -webkit-backdrop-filter: blur(10px); /* 兼容苹果浏览器 */
+  color: white;
+  padding: 12px 230px;
+  border-radius: 10px; /* 超大圆角变成胶囊状 */
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+.has-dropdown {
+  position: relative; /* 下拉菜单要相对于这个按钮定位 */
+}
+
+/* 当下拉菜单激活时，主按钮变白变黑字 */
+.has-dropdown.active .nav-btn {
+  background-color: white;
+  color: black;
+}
+
+.dropdown-menu {
+  display: none; /* 默认隐藏 */
+  position: absolute;
+  top: 110%; /* 出现在按钮正下方稍靠下的位置 */
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px; /* 选项之间的间隙 */
+}
+
+/* 显示下拉菜单的类 */
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* 下拉菜单里面的每一项 */
+.dropdown-menu a {
+  background: rgba(255, 255, 255, 0.15); /* 比主按钮稍微淡一点 */
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 20px; /* 依然是胶囊 */
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap; /* 不折行 */
+}
+
+.cta-btn:hover{
+    background-color: black;
+    color: #f7e018;
+}
+
+.logo:hover{
+    background-color: black;
+    color: #f7e018;
+}
+
+.navbar a{
+  text-decoration: none;
+}
+
+/* ================上面是首页和模板需要的基础css样式，一般不动，新增样式在下面添加==================== */
+/* ================上面是首页和模板需要的基础css样式，一般不动，新增样式在下面添加==================== */
+/* ================上面是首页和模板需要的基础css样式，一般不动，新增样式在下面添加==================== */
+/* ================上面是首页和模板需要的基础css样式，一般不动，新增样式在下面添加==================== */
